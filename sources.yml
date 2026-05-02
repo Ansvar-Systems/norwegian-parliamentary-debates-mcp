@@ -1,0 +1,25 @@
+schema_version: "1.0"
+mcp_name: "Norwegian Parliamentary Debates MCP"
+jurisdiction: "NO"
+
+sources:
+  - name: "CLARIN ParlaMint-NO 3.0"
+    authority: "CLARIN ERIC (Slovenian CLARIN centre / CLARIN.SI)"
+    official_portal: "https://www.clarin.si/repository/xmlui/handle/11356/1486"
+    canonical_identifier: "ParlaMint-NO speech ID (e.g., ParlaMint-NO_2020-04-17.ud450e122)"
+    retrieval_method: "BULK_DOWNLOAD_ARCHIVE"
+    artifact_url: "https://www.clarin.si/repository/xmlui/bitstream/handle/11356/1486/ParlaMint-NO.tgz?sequence=19&isAllowed=y"
+    update_frequency: "static (v3.0 released 2023-06-17, no further updates expected)"
+    last_ingested: "2026-05-02"
+    license_or_terms:
+      type: "CC BY 4.0 (Creative Commons Attribution 4.0 International)"
+      url: "https://creativecommons.org/licenses/by/4.0/"
+      summary: "Free reuse including commercial and AI training/development under CC-BY-4.0; attribution required. Attribution text: 'ParlaMint-NO corpus by CLARIN.SI/Lars Magne Tungland et al.; Norwegian Storting parliamentary debates (CC-BY-4.0, http://hdl.handle.net/11356/1486)'. Note: the CLARIN.SI handle page and per-artifact licence element both declare CC-BY-4.0. An earlier National Library PDF (https://www.nb.no/sbfil/parlamint/ParlaMint-NO-eng.pdf) linked to CC0-1.0; however the artifact is the authoritative source per Ansvar source-attribution standard, so CC-BY-4.0 is the operative licence."
+      attribution_required: true
+    coverage:
+      scope: "Stortinget plenary debate minutes (Hansard) 2000-2022; includes COVID-19 era and post-2022-02-24 war subcorpus markers. TEI-encoded speeches with speaker name, party, role, date, session, and term metadata. 1,509+ XML session files across 23 years."
+      limitations: "No committee proceedings, written questions, or interpellations — plenary debate only. No case law, statutes, or regulatory documents. Speaker disambiguation uses CLARIN person IDs; party affiliation encoded in speaker notes rather than structured TEI attributes in the plain-TEI distribution."
+    source_of_source: "Stortinget open data API (https://data.stortinget.no/); Wikidata speaker metadata"
+    languages:
+      - "nb"
+      - "nn"

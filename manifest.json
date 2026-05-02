@@ -1,0 +1,54 @@
+{
+  "manifest_version": "0.3",
+  "name": "norwegian-parliamentary-debates-mcp",
+  "display_name": "Norwegian Parliamentary Debates MCP Server",
+  "version": "0.1.0",
+  "description": "Production-grade Norwegian Storting parliamentary debates MCP server (ParlaMint-NO via CLARIN, CC-BY-4.0)",
+  "author": {
+    "name": "Ansvar Systems",
+    "email": "hello@ansvar.eu",
+    "url": "https://ansvar.eu"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ansvar-Systems/norwegian-parliamentary-debates-mcp"
+  },
+  "homepage": "https://ansvar.eu",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "claude",
+    "norwegian-parliament",
+    "stortinget",
+    "norway",
+    "parliamentary-debates",
+    "parlamint",
+    "clarin",
+    "cc-by-4.0",
+    "ansvar"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {}
+    }
+  },
+  "tools": [
+    { "name": "search_parliamentary_debates" },
+    { "name": "get_speech" },
+    { "name": "format_citation" },
+    { "name": "list_sources" },
+    { "name": "about" }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}
