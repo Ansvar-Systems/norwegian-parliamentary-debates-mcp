@@ -216,13 +216,25 @@ async function main(): Promise<void> {
   console.log('');
 
   if (!fs.existsSync(ARCHIVE_PATH)) {
-    console.error(
-      `Archive not found at: ${ARCHIVE_PATH}\n\n` +
-      `Download it:\n` +
-      `  mkdir -p "${CACHE_DIR}"\n` +
-      `  wget -O "${ARCHIVE_PATH}" '${CORPUS_URL}'\n`
+    console.log(`Archive not found at ${ARCHIVE_PATH}; downloading from CLARIN...`);
+    fs.mkdirSync(CACHE_DIR, { recursive: true });
+    const download = spawnSync(
+      'wget',
+      ['-q', '--show-progress', '-O', ARCHIVE_PATH, CORPUS_URL],
+      { stdio: 'inherit' }
     );
-    process.exit(1);
+    if (download.status !== 0) {
+      // Clean up partial download so a retry doesn't see a corrupt file as cached
+      if (fs.existsSync(ARCHIVE_PATH)) fs.unlinkSync(ARCHIVE_PATH);
+      console.error(
+        `Failed to download archive (wget exit ${download.status}).\n` +
+        `Manual download:\n` +
+        `  mkdir -p "${CACHE_DIR}"\n` +
+        `  wget -O "${ARCHIVE_PATH}" '${CORPUS_URL}'\n`
+      );
+      process.exit(1);
+    }
+    console.log(`Downloaded to ${ARCHIVE_PATH}`);
   }
 
   // Use system tar to list archive contents
