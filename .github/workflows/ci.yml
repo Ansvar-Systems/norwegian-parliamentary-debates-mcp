@@ -28,6 +28,18 @@ jobs:
       # - name: Lint
       #   run: npm run lint
 
+      - name: Cache ParlaMint-NO archive
+        uses: actions/cache@v4
+        with:
+          path: data/cache
+          key: parlamint-no-corpus-2020
+
+      - name: Ingest ParlaMint-NO sample (year 2020 for CI)
+        run: |
+          # Full corpus (~412 MB download) is too slow for CI.
+          # Ingest a single year; the archive is cached across runs.
+          npm run ingest -- --year 2020
+
       - name: Build database
         run: |
           if jq -e '.scripts["build:db"]' package.json >/dev/null 2>&1; then
