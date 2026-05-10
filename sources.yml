@@ -11,6 +11,7 @@ sources:
     artifact_url: "https://www.clarin.si/repository/xmlui/bitstream/handle/11356/1486/ParlaMint-NO.tgz?sequence=19&isAllowed=y"
     update_frequency: "static (v3.0 released 2023-06-17, no further updates expected)"
     last_ingested: "2026-05-02"
+    last_verified: "2026-05-09"
     license_or_terms:
       type: "CC BY 4.0 (Creative Commons Attribution 4.0 International)"
       url: "https://creativecommons.org/licenses/by/4.0/"
