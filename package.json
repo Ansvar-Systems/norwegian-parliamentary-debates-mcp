@@ -33,7 +33,7 @@
   "dependencies": {
     "@ansvar/mcp-sqlite": "^1.0.3",
     "@modelcontextprotocol/sdk": "^1.25.3",
-    "js-yaml": "^4.1.1"
+    "js-yaml": "^5.1.0"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
